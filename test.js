@@ -9,34 +9,38 @@ let git_item_name = null;
 const readline = require('readline');
 const rl = readline.createInterface({input: process.stdin, output: process.stdout});
 
+///////////// functions //////////////////
+function checkIfChanges () {
+    return execSync('git status -suno').toString();
+}
+
+function addFunction() {
+    return execSync('git add .')
+}
+function commitFunction() {
+    return execSync(`git commit -a -m "${git_item_name}"`)
+}
+
+function pushFunction() {
+    return execSync(`git push`)
+}
+
+function gitLogFunction() {
+    return execSync(`git rev-parse HEAD`).toString();
+}
+
+//////////////////////////
+
+// check if there are any local changes
+const changes = checkIfChanges();
+if(!changes) {
+    return;
+}
+
+//
+
 rl.question('Enter git item name: ', ans => {
     git_item_name = ans;
-
-    function checkIfChanges () {
-        return execSync('git status -suno');
-    }
-
-    function addFunction() {
-        return execSync('git add .')
-    }
-    function commitFunction() {
-        return execSync(`git commit -a -m "${git_item_name}"`)
-    }
-    
-    function pushFunction() {
-        return execSync(`git push`)
-    }
-
-    function gitLogFunction() {
-        return execSync(`git rev-parse HEAD`).toString();
-    }
-      
-    // check if there are any local changes
-    const changes = checkIfChanges();
-    console.log(changes);
-    
-    //
-
 
     const previous_hash = gitLogFunction(); 
     
