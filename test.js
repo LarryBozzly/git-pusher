@@ -1,6 +1,7 @@
 fs = require('fs');
 const { execSync } = require("child_process");
 
+// log.txt
 
 
 let git_item_name = null;
