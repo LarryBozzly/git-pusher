@@ -2,8 +2,10 @@
   "name": "git-pusher",
   "version": "1.0.0",
   "description": "",
-  "main": "pusher.js",
-  "pusher":"pusher.js",
+  "main": "./bin/pusher.js",
+  "bin": {
+    "pusher": "./bin/pusher.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
