@@ -35,15 +35,11 @@ rl.question('Enter git item name: ', ans => {
     myFunction2();
     myFunction3();
     
-
     
-    
-    // fs.writeFile('prod_hash.txt', git_item_name, function (err) {
-    //     if (err) return console.log(err);
-    //     console.log('Hello World > helloworld.txt');
-    // });
-
-
+    fs.writeFile('prod_hash.txt', git_item_name, function (err) {
+        if (err) return console.log(err);
+        console.log('Hello World > helloworld.txt');
+    });
 
 
     rl.close();
