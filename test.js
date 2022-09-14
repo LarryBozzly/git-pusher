@@ -41,11 +41,6 @@ rl.question('Enter git item name: ', ans => {
         fs.readFile('log.txt', function (err, data) {
             if (err) throw err;
             if(data.indexOf(git_item_name) >= 0){
-
-                if(data.match(/(?:.*\()([^\)]*)(?:\)[^\(]*)/)[0]) {
-                    
-                }
-
                 let logger = fs.createWriteStream('log.txt', {
                     flags: 'a' // 'a' means appending (old data will be preserved)  
                 })
