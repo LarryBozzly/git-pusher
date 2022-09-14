@@ -29,7 +29,7 @@ rl.question('Enter git item name: ', ans => {
       
     const previous_hash = gitLogFunction(); 
     
-    addFunction();
+    addFunction(); 
     commitFunction();
     pushFunction();
     const latest_hash = gitLogFunction();
