@@ -42,7 +42,7 @@ rl.question('Enter git item name: ', ans => {
             if (err) throw err;
             if(data.indexOf(git_item_name) >= 0){
                 let logger = fs.createWriteStream('log.txt', {
-                    flags: 'a' // 'a' means appending (old data will be preserved)  
+                    flags: 'a' // 'a' means appending (old data will be preserved)   
                 })
                 logger.write(string+'v1');
                 logger.end();
