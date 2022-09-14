@@ -2,6 +2,7 @@ fs = require('fs');
 const { execSync } = require("child_process");
 
 
+
 let git_item_name = null;
 
 const readline = require('readline');
@@ -31,7 +32,7 @@ rl.question('Enter git item name: ', ans => {
     commitFunction();
     pushFunction();
     const latest_hash = gitLogFunction();
-    
+
     if(previous_hash !== latest_hash && latest_hash && git_item_name) {
         
         let string = `${latest_hash} !!! ${git_item_name}`.replace(/\n/g, ""); 
