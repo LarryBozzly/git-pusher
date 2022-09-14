@@ -34,6 +34,7 @@ function gitLogFunction() {
 // check if there are any local changes
 const changes = checkIfChanges();
 if(!changes) {
+    console.log('No Changes');
     process.exit();
 }
 
