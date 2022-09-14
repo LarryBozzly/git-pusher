@@ -21,6 +21,10 @@ function commitFunction() {
     return execSync(`git commit -a -m "${git_item_name}"`)
 }
 
+function pullFunction() {
+    return execSync(`git pull`)
+}
+
 function pushFunction() {
     return execSync(`git push`)
 }
@@ -46,6 +50,7 @@ rl.question('Enter git item name: ', ans => {
     
     addFunction(); 
     commitFunction();
+    pullFunction();
     pushFunction();
     const latest_hash = gitLogFunction();
 
