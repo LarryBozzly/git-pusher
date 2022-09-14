@@ -12,6 +12,10 @@ const rl = readline.createInterface({input: process.stdin, output: process.stdou
 rl.question('Enter git item name: ', ans => {
     git_item_name = ans;
 
+    function checkIfChanges () {
+        return execSync('git status -suno');
+    }
+
     function addFunction() {
         return execSync('git add .')
     }
@@ -27,6 +31,13 @@ rl.question('Enter git item name: ', ans => {
         return execSync(`git rev-parse HEAD`).toString();
     }
       
+    // check if there are any local changes
+    const changes = checkIfChanges();
+    console.log(changes);
+    
+    //
+
+
     const previous_hash = gitLogFunction(); 
     
     addFunction(); 
@@ -34,7 +45,7 @@ rl.question('Enter git item name: ', ans => {
     pushFunction();
     const latest_hash = gitLogFunction();
 
-    if(previous_hash !== latest_hash && latest_hash && git_item_name) {
+    if(previous_hash !== latest_hash && latest_hash && git_item_name) {  
         
         let string = `${latest_hash} !!! ${git_item_name}`.replace(/\n/g, ""); 
         string = '\n'+'\n'+string;
