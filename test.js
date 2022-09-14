@@ -12,28 +12,35 @@ const rl = readline.createInterface({input: process.stdin, output: process.stdou
 rl.question('Enter git item name: ', ans => {
     git_item_name = ans;
 
-    function myFunction1() {
+    function addFunction() {
         return execSync('git add .', (err, stdout, stderr) => {
             // handle err, stdout & stderr
         });
     }
-    function myFunction2() {
+    function commitFunction() {
         return execSync(`git commit -a -m "${git_item_name}"`, (err, stdout, stderr) => {
             // handle err, stdout & stderr
         });
     }
     
-    function myFunction3() {
+    function pushFunction() {
         return execSync(`git push`, (err, stdout, stderr) => {
+            // handle err, stdout & stderr
+        });
+    }
+
+    function gitLogFunction() {
+        return execSync(`git log`, (err, stdout, stderr) => {
+            console.log(stdout);
             // handle err, stdout & stderr
         });
     }
       
     
-    /////test1/////
-    myFunction1();
-    myFunction2();
-    myFunction3();
+    addFunction();
+    commitFunction();
+    pushFunction();
+    gitLogFunction();
     
     
     fs.writeFile('prod_hash.txt', git_item_name, function (err) {
