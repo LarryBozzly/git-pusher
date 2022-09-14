@@ -27,17 +27,21 @@ rl.question('Enter git item name: ', ans => {
         return execSync(`git rev-parse HEAD`).toString();
     }
       
+    const previous_hash = gitLogFunction();
     
     addFunction();
     commitFunction();
     pushFunction();
-    const hash = gitLogFunction();
-    const string = hash + ' ' + '!!!' + ' '+git_item_name;
+    const latest_hash = gitLogFunction();
+    if(previous_hash !== latest_hash) {
+        const string = hash + ' ' + '!!!' + ' '+git_item_name;
+        let logger = fs.createWriteStream('log.txt', {
+            flags: 'a' // 'a' means appending (old data will be preserved)
+        })
+        logger.write(string);
+        logger.end();
+    }
     
-    fs.writeFile('prod_hash.txt', string, function (err) {
-        if (err) return console.log(err);
-    });
-
     rl.close();
 });
 
