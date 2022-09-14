@@ -6,19 +6,27 @@ const { execSync } = require("child_process");
 
 let git_item_name = null;
 
-function myFucn1() {
+function myFunction1() {
     return execSync('git add .', (err, stdout, stderr) => {
         // handle err, stdout & stderr
     });
 }
-function myFucn1() {
+function myFunction2() {
     return execSync(`git commit -a -m "aaaaaa"`, (err, stdout, stderr) => {
         // handle err, stdout & stderr
     });
 }
+
+function myFunction3() {
+    return execSync(`git push`, (err, stdout, stderr) => {
+        // handle err, stdout & stderr
+    });
+}
   
-  myFucn1();
-  myFucn2();
+myFunction1();
+myFunction2();
+myFunction3();
+
   
   
 
