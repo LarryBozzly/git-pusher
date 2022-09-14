@@ -35,7 +35,7 @@ rl.question('Enter git item name: ', ans => {
     const latest_hash = gitLogFunction();
     if(previous_hash !== latest_hash && latest_hash && git_item_name) {
         let string = `${latest_hash} !!! ${git_item_name}`.replace(/\n/g, "");
-        string = '\n'+string;
+        string = '\n'+'\n'+string;
         let logger = fs.createWriteStream('log.txt', {
             flags: 'a' // 'a' means appending (old data will be preserved) 
         })
