@@ -12,6 +12,7 @@ rl.question('Enter git item name: ', ans => {
 
     
 
+    
     exec(`
     git add .
     git commit -a -m "${git_item_name}"
@@ -19,7 +20,6 @@ rl.question('Enter git item name: ', ans => {
         console.log(err);
     // handle err, stdout & stderr
     });
-
     
     // fs.writeFile('prod_hash.txt', git_item_name, function (err) {
     //     if (err) return console.log(err);
