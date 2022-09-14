@@ -13,41 +13,30 @@ rl.question('Enter git item name: ', ans => {
     git_item_name = ans;
 
     function addFunction() {
-        return execSync('git add .', (err, stdout, stderr) => {
-            // handle err, stdout & stderr
-        });
+        return execSync('git add .')
     }
     function commitFunction() {
-        return execSync(`git commit -a -m "${git_item_name}"`, (err, stdout, stderr) => {
-            // handle err, stdout & stderr
-        });
+        return execSync(`git commit -a -m "${git_item_name}"`)
     }
     
     function pushFunction() {
-        return execSync(`git push`, (err, stdout, stderr) => {
-            // handle err, stdout & stderr
-        });
+        return execSync(`git push`)
     }
 
     function gitLogFunction() {
-        return execSync(`git log`, (err, stdout, stderr) => {
-            console.log(stdout);
-            // handle err, stdout & stderr
-        });
+        return execSync(`git rev-parse HEAD`).toString();
     }
       
     
     addFunction();
     commitFunction();
     pushFunction();
-    gitLogFunction();
+    const hash = gitLogFunction();
+    const string = `${hash} !!! ${git_item_name}`;
     
-    
-    fs.writeFile('prod_hash.txt', git_item_name, function (err) {
+    fs.writeFile('prod_hash.txt', string, function (err) {
         if (err) return console.log(err);
-        console.log('Hello World > helloworld.txt');
     });
-
 
     rl.close();
 });
