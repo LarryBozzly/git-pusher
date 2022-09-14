@@ -32,7 +32,7 @@ rl.question('Enter git item name: ', ans => {
     commitFunction();
     pushFunction();
     const hash = gitLogFunction();
-    const string = `${hash}${0x20}!!!${0x20}${git_item_name}`;
+    const string = hash + ' ' + '!!!' + ' '+git_item_name;
     
     fs.writeFile('prod_hash.txt', string, function (err) {
         if (err) return console.log(err);
