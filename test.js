@@ -27,7 +27,7 @@ rl.question('Enter git item name: ', ans => {
         return execSync(`git rev-parse HEAD`).toString();
     }
       
-    const previous_hash = gitLogFunction();
+    const previous_hash = gitLogFunction(); 
     
     addFunction();
     commitFunction();
