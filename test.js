@@ -37,7 +37,6 @@ if(!changes) {
     console.log('No Changes');
     process.exit();
 }
-
 //
 
 rl.question('Enter git item name: ', ans => {
