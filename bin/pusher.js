@@ -5,7 +5,6 @@ const { execSync } = require("child_process");
 
 // log.txt
 
-
 let git_item_name = null;
 
 const readline = require('readline');
